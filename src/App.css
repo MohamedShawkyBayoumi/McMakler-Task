@@ -1,38 +1,254 @@
-.App {
+html,
+body{
+  background: #F8F8F8;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+
+}
+
+.header-links h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+.hamburger-icon {
+  margin-right: 36px;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links li {
+  margin-right: 38px;
+}
+
+main {
+  background: #FFFFFF;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  padding: 32px 24px;
+  margin-bottom: 24px;
+}
+
+.main-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.main-top-list {
+  display: flex;
+}
+
+.main-top-list li {
+  border-right: 1px solid #E6E6E6;
+  padding: 0 43px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-top-list li h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #4A4A4A;
+  font-size: 20px;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-top-list li h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #4A4A4A;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section-head-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #4A4A4A;
+  margin-left: 16px;
+}
+
+.filters {
+  margin-bottom: 32px;
+}
+
+.filters input {
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #9D9D9D;
+  padding: 13px 13px 13px 45px;
+  width: 100%;
+}
+
+.dropdown-container {
+  margin-right: 8px;
+}
+
+.dropdown-container select {
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #9D9D9D;
+  padding: 11px 16px;
+  width: 100%;
+  background: #FFFFFF;
+  /* Grey 300 */
+  /* height: 45px; */
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 11px;
+  left: 14px;
+}
+
+.head-section-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4A4A4A;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 24px 0;
+}
+
+.avatar {
+  margin-bottom: 8px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.avatar div {
+  width: 70px;
+  height: 70px;
+  background: #E3E7F9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #405493;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+.card h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+.appointment-date {
+  text-align: center;
+}
+
+.appointment-date span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #9D9D9D;
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+
+.bid {
+  text-align: center;
+}
+
+.bid span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #9D9D9D;
+  background: #FEB902;
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+
+
+
+.appointment-section {
+  margin-bottom: 32px;
+}
+
+footer h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4A4A4A;
+  mix-blend-mode: normal;
+  opacity: 0.54;
+  text-align: center;
+  margin-bottom: 24px;
 }
