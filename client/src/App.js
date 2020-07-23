@@ -137,14 +137,14 @@ function App() {
             </div>
           </section>
           <section className="filters">
-            <div className="columns">
-              <div className="column is-3">
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-3-desktop is-5-tablet is-12-mobile">
                 <div className="input-container">
                   <SearchIcon className="search-icon" />
                   <input type="text" placeholder="Search for applicant" />
                 </div>
               </div>
-              <div className="column is-3">
+              <div className="column is-3-desktop is-5-tablet is-10-mobile">
                 <div className="is-flex">
                   <div className="dropdown-container">
                     <select>
@@ -153,7 +153,11 @@ function App() {
                   </div>
                   <div className="dropdown-container">
                     <select>
-                      <option>Status</option>
+                      <option value="">Status</option>
+                      <option value="Appointment_Set">Appointment_Set</option>
+                      <option value="Property_Viewed">Property_Viewed</option>
+                      <option value="Interested">Interested</option>
+                      <option value="Offer_Accepted">Offer_Accepted</option>
                     </select>
                   </div>
                 </div>
@@ -162,22 +166,22 @@ function App() {
             </div>
             
           </section>
-          <h1 className="head-section-text">Appointment set (3)</h1>
+          <h1 className="head-section-text">Appointment set ({appointments.length})</h1>
           <section className="appointment-section">
-            <div className="columns is-multiline">
+            <div className="columns is-mobile card-columns-mobile">
               {appointments.length > 0 && appointments.map((data, i) => (
-                <div className="column is-3" key={i}>
-                  <Card data={data} colors={colors} />
+                <div className="column is-3-desktop is-4-tablet is-three-quarters-mobile" key={i}>
+                  <Card data={data} colors={colors} date_placeholder="APPOINTMENT" />
                 </div>
               ))}
             </div>
           </section>
-          <h1 className="head-section-text">Property viewed (5)</h1>
+          <h1 className="head-section-text">Property viewed ({properties.length})</h1>
           <section className="appointment-section">
-            <div className="columns is-multiline">
+            <div className="columns is-mobile card-columns-mobile">
               {properties.length > 0 && properties.map((data, i) => (
-                <div className="column is-3" key={i}>
-                  <Card data={data} colors={colors} />
+                <div className="column is-3-desktop is-4-tablet is-three-quarters-mobile" key={i}>
+                  <Card data={data} colors={colors} date_placeholder="VIEWED" />
                 </div>
               ))}
             </div>

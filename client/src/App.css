@@ -253,7 +253,11 @@ footer h1 {
   margin-bottom: 24px;
 }
 
-@media screen and (max-width: 400px){
+.card-columns-mobile {
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px){
   .header {
     padding: 0 24px;
   }
@@ -275,6 +279,11 @@ footer h1 {
   .logo > svg {
     width: 99.3px;
     height: 15px;
+  }
+
+  .card-columns-mobile {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
   }
 
 }
