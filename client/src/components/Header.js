@@ -11,16 +11,19 @@ function Header() {
         <header>
             <div className="container">
                 <div className="header">
-                    <div className="is-flex">
+                    <div className="is-flex header-left">
                         <div className="hamburger-icon">
                             <HamburgerIcon />
                         </div>
                         <div className="logo">
                             <Logo />
                         </div>
+                        <div className="is-hidden-desktop">
+                            <MessageIcon />
+                        </div>
                     </div>
                     <div>
-                        <ul className="header-links is-flex">
+                        <ul className="header-links is-flex is-hidden-mobile">
                             <li>
                                 <div className="is-flex">
                                     <SupportIcon style={{ marginRight: 10 }} />

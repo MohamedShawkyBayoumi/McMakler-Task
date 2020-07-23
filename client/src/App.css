@@ -252,3 +252,29 @@ footer h1 {
   text-align: center;
   margin-bottom: 24px;
 }
+
+@media screen and (max-width: 400px){
+  .header {
+    padding: 0 24px;
+  }
+
+  .header-links li {
+    margin-right: 0;
+  }
+
+  .header-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hamburger-icon {
+    margin-right: 0;
+  }
+
+  .logo > svg {
+    width: 99.3px;
+    height: 15px;
+  }
+
+}

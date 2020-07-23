@@ -1,10 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import { ReactComponent as BackIcon } from './assets/images/ic/arrow/back.svg';
 import { ReactComponent as SearchIcon } from './assets/images/ic/search.svg';
+import Card from './components/Card';
 
 function App() {
+
+  const [appointments, setAppointments] = useState([
+    {
+      id: 1,
+      name: 'Friedrich Heinrich',
+      phone: '+49 146 344 23811',
+      email: 'Friedrich.heinrich@gmail.com',
+      date: '22 JULY 14:00'
+    },
+    {
+      id: 2,
+      name: 'Hans-Ulrich',
+      phone: '+49 146 344 23811',
+      email: 'Hans-Ulrichh@gmail.com',
+      date: '22 JULY 14:00'
+    },
+    {
+      id: 3,
+      name: 'Karlheinz Brandenburg',
+      phone: '+49 146 344 23811',
+      email: 'karlheinzbrandenburg@gmail.com',
+      date: '22 JULY 14:00'
+    },
+  ]),
+      [properties, setProperties] = useState([
+        {
+          id: 1,
+          name: 'Maxmillian Von Mustermann',
+          phone: '+49 146 344 23811',
+          email: 'max.mustermann@gmail.com',
+          date: 'Viewed 11 JunE 19:00',
+          bid: '250.000€'
+        },
+        {
+          id: 2,
+          name: 'Bernhard Weiß',
+          phone: '+49 146 344 23811',
+          email: 'bernhard.weiß@gmail.com',
+          date: 'Viewed 11 JunE 19:00',
+          bid: '250.000€'
+        },
+        {
+          id: 3,
+          name: 'Hansjörg Felmy',
+          phone: '+49 146 344 23811',
+          email: 'Hansjörg.felmy@gmail.com',
+          date: 'Viewed 11 JunE 19:00',
+          bid: '250.000€'
+        },
+        {
+          id: 4,
+          name: 'Gottschalk Godeslack',
+          phone: '+49 146 344 23811',
+          email: 'gottschalk.godeslack@gmail.com',
+          date: 'Viewed 11 JunE 19:00',
+          bid: '250.000€'
+        },
+        {
+          id: 5,
+          name: 'Ekkehard Hardy',
+          phone: '+49 146 344 23811',
+          email: 'ekkehard.hardy@gmail.com',
+          date: 'Viewed 11 JunE 19:00',
+          bid: '250.000€'
+        },
+      ]),
+        [colors, setColors] = useState([
+          {
+            id: 1,
+            color: '#405493',
+            backgroundColor: '#E3E7F9'
+          },
+          {
+            id: 2,
+            color: '#20ADC5',
+            backgroundColor: '#CEF0F4'
+          },
+          {
+            id: 3,
+            color: '#ACAF36',
+            backgroundColor: '#F0F4E1'
+          },
+          {
+            id: 4,
+            color: '#E97428',
+            backgroundColor: '#FEE8D3'
+          },
+          {
+            id: 5,
+            color: '#E52A50',
+            backgroundColor: '#FCD6DE'
+          },
+        ]);
+
   return (
     <div>
       <Header />
@@ -16,7 +111,7 @@ function App() {
               <img src={require('./assets/images/ic/arrow/back.png')} alt="back" />
               <h1 className="section-head-text">Applicants</h1>
             </div>
-            <div>
+            <div className="is-hidden-mobile">
               <ul className="main-top-list">
                 <li>
                   <h3>25</h3>
@@ -69,41 +164,22 @@ function App() {
           </section>
           <h1 className="head-section-text">Appointment set (3)</h1>
           <section className="appointment-section">
-            <div className="columns">
-              <div className="column is-3">
-                <div className="card">
-                  <div className="avatar">
-                    <div>FH</div>
-                  </div>
-                  <h3>Friedrich Heinrich</h3>
-                  <h4>+49 146 344 23811</h4>
-                  <h4>Friedrich.heinrich@gmail.com</h4>
-                  <div className="appointment-date">
-                    <span>APPOINTMENT 22 JULY 14:00</span>
-                  </div>
-                  <div className="bid">
-                    <span>BID 250.000€</span>
-                  </div>
+            <div className="columns is-multiline">
+              {appointments.length > 0 && appointments.map((data, i) => (
+                <div className="column is-3" key={i}>
+                  <Card data={data} colors={colors} />
                 </div>
-              </div>
+              ))}
             </div>
           </section>
           <h1 className="head-section-text">Property viewed (5)</h1>
           <section className="appointment-section">
-            <div className="columns">
-              <div className="column is-3">
-                <div className="card">
-                  <div className="avatar">
-                    <div>FH</div>
-                  </div>
-                  <h3>Friedrich Heinrich</h3>
-                  <h4>+49 146 344 23811</h4>
-                  <h4>Friedrich.heinrich@gmail.com</h4>
-                  <div className="appointment-date">
-                    <span>APPOINTMENT 22 JULY 14:00</span>
-                  </div>
+            <div className="columns is-multiline">
+              {properties.length > 0 && properties.map((data, i) => (
+                <div className="column is-3" key={i}>
+                  <Card data={data} colors={colors} />
                 </div>
-              </div>
+              ))}
             </div>
           </section>
         </main>
