@@ -3,7 +3,9 @@ import './App.css';
 import Header from './components/Header';
 import { ReactComponent as BackIcon } from './assets/images/ic/arrow/back.svg';
 import { ReactComponent as SearchIcon } from './assets/images/ic/search.svg';
+import { ReactComponent as ArrowDownIcon } from './assets/images/ic/arrow_drop_down.svg';
 import Card from './components/Card';
+import MainStatistics from './components/MainStatistics';
 
 function App() {
 
@@ -112,28 +114,7 @@ function App() {
               <h1 className="section-head-text">Applicants</h1>
             </div>
             <div className="is-hidden-mobile">
-              <ul className="main-top-list">
-                <li>
-                  <h3>25</h3>
-                  <h4>Total</h4>
-                </li>
-                <li>
-                  <h3>10</h3>
-                  <h4>New</h4>
-                </li>
-                <li>
-                  <h3>5</h3>
-                  <h4>Viewed</h4>
-                </li>
-                <li>
-                  <h3>3</h3>
-                  <h4>Appointment</h4>
-                </li>
-                <li>
-                  <h3>6</h3>
-                  <h4>Others</h4>
-                </li>
-              </ul>
+              <MainStatistics />
             </div>
           </section>
           <section className="filters">
@@ -147,11 +128,13 @@ function App() {
               <div className="column is-3-desktop is-5-tablet is-10-mobile">
                 <div className="is-flex">
                   <div className="dropdown-container">
+                    <img src={require('./assets/images/arrow_drop_down.png')} alt="arrow_drop_down" className="arrow-down" />
                     <select>
                       <option>Bids</option>
                     </select>
                   </div>
                   <div className="dropdown-container">
+                    <img src={require('./assets/images/arrow_drop_down.png')} alt="arrow_drop_down" className="arrow-down" />
                     <select>
                       <option value="">Status</option>
                       <option value="Appointment_Set">Appointment_Set</option>

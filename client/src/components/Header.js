@@ -23,7 +23,7 @@ function Header() {
                         </div>
                     </div>
                     <div>
-                        <ul className="header-links is-flex is-hidden-mobile">
+                        <ul className="header-links is-hidden-touch">
                             <li>
                                 <div className="is-flex">
                                     <SupportIcon style={{ marginRight: 10 }} />

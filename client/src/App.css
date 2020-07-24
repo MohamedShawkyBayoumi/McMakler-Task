@@ -109,6 +109,16 @@ main {
 
 .dropdown-container {
   margin-right: 8px;
+  position: relative;
+}
+
+.arrow-down {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 13px;
+  right: 3px;
+  pointer-events: none;
 }
 
 .dropdown-container select {
@@ -127,6 +137,9 @@ main {
   /* height: 45px; */
   box-sizing: border-box;
   border-radius: 3px;
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
 }
 
 .input-container {
@@ -266,11 +279,7 @@ footer h1 {
     margin-right: 0;
   }
 
-  .header-left {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+  
 
   .hamburger-icon {
     margin-right: 0;
@@ -286,4 +295,12 @@ footer h1 {
     overflow-x: auto;
   }
 
+}
+
+@media screen and (max-width: 1023px){
+  .header-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
