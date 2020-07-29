@@ -13,6 +13,8 @@ function Home({ location, history }) {
   const [appointments, setAppointments] = useState([]),
         [appointmentsErrorMsg, setAppointmentsErrorMsg] = useState(''),
         [propertiesErrorMsg, setPropertiesErrorMsg] = useState(''),
+        [isLoadingAppointments, setIsLoadingAppointments] = useState(false),
+        [isLoadingProperties, setIsLoadingProperties] = useState(false),
         [searchTerm, setSearchTerm] = useState(''),
         [properties, setProperties] = useState([]),
         [colors, setColors] = useState([
@@ -59,21 +61,27 @@ function Home({ location, history }) {
 
   const getAppointments = async () => {
     try {
-      let res = await axios(`${API}/appointments`);
-      setAppointments(res.data);
+        setIsLoadingAppointments(true);
+        let res = await axios(`${API}/appointments`);
+        setAppointments(res.data);
+        setIsLoadingAppointments(false);
     } catch (error) {
       console.log(error);
       setAppointmentsErrorMsg(`Something went wrong in loading Appointments`);
+      setIsLoadingAppointments(false);
     }
   }
 
   const getProperties = async (search = '') => {
     try {
-      let res = await axios(`${API}/properties?search=${search}`);
-      setProperties(res.data);
+        setIsLoadingProperties(true);
+        let res = await axios(`${API}/properties?search=${search}`);
+        setProperties(res.data);
+        setIsLoadingProperties(false);
     } catch (error) {
-      console.log(error);
-      setPropertiesErrorMsg(`Something went wrong in loading Properties`);
+        console.log(error);
+        setPropertiesErrorMsg(`Something went wrong in loading Properties`);
+        setIsLoadingProperties(false);
     }
   }
 
@@ -143,12 +151,14 @@ function Home({ location, history }) {
             data={appointments}
             colors={colors}
             errorMsg={appointmentsErrorMsg}
+            loading={isLoadingAppointments}
           />
           <Section 
             title={`Property viewed (${properties.length})`}
             data={properties}
             colors={colors}
             errorMsg={propertiesErrorMsg}
+            loading={isLoadingProperties}
           />
          
         </main>
