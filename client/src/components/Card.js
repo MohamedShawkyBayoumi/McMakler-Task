@@ -23,7 +23,7 @@ function Card({ data: { name, phone, email, date, bid }, colors = [], date_place
             </div>
             {bid && (
             <div className="bid">
-                <span>BID 250.000€</span>
+                <span>BID {bid}</span>
             </div>
             )}
         </div>
