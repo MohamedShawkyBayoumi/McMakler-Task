@@ -4,6 +4,7 @@ import { ReactComponent as SupportIcon } from '../assets/images/ic-contact_suppo
 import { ReactComponent as MessageIcon } from '../assets/images/message/active.svg';
 import { ReactComponent as UserIcon } from '../assets/images/ic-user.svg';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
@@ -12,31 +13,45 @@ function Header() {
                 <div className="header">
                     <div className="is-flex header-left">
                         <div className="hamburger-icon">
-                            <HamburgerIcon />
+                            <button>
+                                <HamburgerIcon />
+                            </button>
                         </div>
                         <div className="logo">
-                            <Logo />
+                            <Link to={`/`}>
+                                <Logo />
+                            </Link>
                         </div>
                         <div className="is-hidden-desktop">
-                            <MessageIcon />
+                            <button>
+                                <MessageIcon />
+                            </button>
                         </div>
                     </div>
                     <div>
                         <ul className="header-links is-hidden-touch">
                             <li>
-                                <div className="is-flex">
-                                    <SupportIcon style={{ marginRight: 10 }} />
-                                    <h1>Contact Support</h1>
-                                </div>
+                                <button>
+                                    <div className="is-flex">
+                                        <SupportIcon style={{ marginRight: 10 }} />
+                                        <h1>Contact Support</h1>
+                                    </div>
+                                </button>
                             </li>
                             <li>
-                                <MessageIcon />
+                                <button>
+                                    <MessageIcon />
+                                </button>
                             </li>
                             <li>
-                                <UserIcon />
+                                <button>
+                                    <UserIcon />
+                                </button>
                             </li>
                             <li>
-                                <img src={require('../assets/images/ic-power_settings_new.svg')} alt="ic-power_settings_new" />
+                                <button>
+                                    <img src={require('../assets/images/ic-power_settings_new.svg')} alt="ic-power_settings_new" />
+                                </button>
                             </li>
                         </ul>
                     </div>

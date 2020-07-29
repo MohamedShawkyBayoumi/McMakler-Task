@@ -6,8 +6,6 @@ import Section from '../components/Section';
 import { useDebounce } from '../utils/debounce';
 
 function Home({ location, history }) {
-    
-
   const [appointments, setAppointments] = useState([]),
         [appointmentsErrorMsg, setAppointmentsErrorMsg] = useState(''),
         [propertiesErrorMsg, setPropertiesErrorMsg] = useState(''),
@@ -15,7 +13,7 @@ function Home({ location, history }) {
         [isLoadingProperties, setIsLoadingProperties] = useState(false),
         [searchTerm, setSearchTerm] = useState(''),
         [properties, setProperties] = useState([]),
-        [colors, setColors] = useState([
+        [colors] = useState([
           {
             id: 1,
             color: '#405493',
@@ -105,7 +103,9 @@ function Home({ location, history }) {
         <main>
           <section className="main-top">
             <div className="is-flex">
-              <img src={require('../assets/images/ic/arrow/back.svg')} alt="back" />
+              <button>
+                <img src={require('../assets/images/ic/arrow/back.svg')} alt="back" />
+              </button>
               <h1 className="section-head-text">Applicants</h1>
             </div>
             <div className="is-hidden-mobile">
@@ -116,8 +116,13 @@ function Home({ location, history }) {
             <div className="columns is-mobile is-multiline">
               <div className="column is-3-desktop is-5-tablet is-12-mobile">
                 <div className="input-container">
-                  <SearchIcon className="search-icon" />
-                  <input type="text" placeholder="Search for applicant" value={searchTerm} onChange={e => handleChange(e)} />
+                    <SearchIcon className="search-icon" />
+                    <input
+                        type="text"
+                        placeholder="Search for applicant"
+                        value={searchTerm}
+                        onChange={e => handleChange(e)}
+                    />
                 </div>
               </div>
               <div className="column is-3-desktop is-5-tablet is-10-mobile">
