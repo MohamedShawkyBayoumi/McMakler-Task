@@ -50,6 +50,7 @@ function Home({ location, history }) {
             getProperties(debouncedSearchTerm);
         } else {
             history.push('/');
+            getProperties();
         }
       },
       [debouncedSearchTerm]

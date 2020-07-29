@@ -24,7 +24,7 @@ app.get('/appointments', (req, res) => {
         },
         {
           id: 2,
-          name: 'Hans-Ulrich',
+          name: 'Hans Ulrich',
           phone: '+49 146 344 23811',
           email: 'Hans-Ulrichh@gmail.com',
           date: '22 JULY 14:00'
