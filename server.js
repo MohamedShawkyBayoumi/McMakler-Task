@@ -86,6 +86,14 @@ app.get('/properties', (req, res) => {
         },
     ];
 
+    if(req.query.search){
+        let filter = properties.filter(p => 
+            p.name.toLowerCase().includes(req.query.search.toLowerCase()) ||
+            p.email.toLowerCase().includes(req.query.search.toLowerCase())
+        )
+        return res.send(filter);
+    }
+
     setTimeout(() => res.send(properties), 1500);
 
     // Fake error in server
