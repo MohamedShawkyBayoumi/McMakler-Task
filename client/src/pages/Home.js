@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
 import { ReactComponent as BackIcon } from '../assets/images/ic/arrow/back.svg';
 import { ReactComponent as SearchIcon } from '../assets/images/ic/search.svg';
 import { ReactComponent as ArrowDownIcon } from '../assets/images/ic/arrow_drop_down.svg';
@@ -8,7 +7,7 @@ import axios from 'axios';
 import Section from '../components/Section';
 import { useDebounce } from '../utils/debounce';
 
-function Home({ location }) {
+function Home({ location, history }) {
     
 
   const [appointments, setAppointments] = useState([]),
@@ -49,7 +48,10 @@ function Home({ location }) {
     useEffect(
       () => {
         if (debouncedSearchTerm) {
-          getProperties(debouncedSearchTerm);
+            history.push(`/page/?search=${debouncedSearchTerm}`)
+            getProperties(debouncedSearchTerm);
+        } else {
+            history.push('/');
         }
       },
       [debouncedSearchTerm]
@@ -77,17 +79,15 @@ function Home({ location }) {
 
   const handleChange = async e => {
     setSearchTerm(e.target.value);
-    if(e.target.value == ''){
-      getProperties();
-    }
   }
 
   useEffect(() => {
     getAppointments();
     const params = new URLSearchParams(location.search);
-    let searchTerm = params.get('search');
-    if(searchTerm){
-        getProperties(searchTerm);
+    let searchKey = params.get('search');
+    if(searchKey){
+        setSearchTerm(searchKey);
+        getProperties(searchKey);
     } else {
         getProperties();
     }
@@ -112,7 +112,7 @@ function Home({ location }) {
               <div className="column is-3-desktop is-5-tablet is-12-mobile">
                 <div className="input-container">
                   <SearchIcon className="search-icon" />
-                  <input type="text" placeholder="Search for applicant" onChange={e => handleChange(e)} />
+                  <input type="text" placeholder="Search for applicant" value={searchTerm} onChange={e => handleChange(e)} />
                 </div>
               </div>
               <div className="column is-3-desktop is-5-tablet is-10-mobile">
