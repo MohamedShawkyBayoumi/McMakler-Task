@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import { ReactComponent as BackIcon } from './assets/images/ic/arrow/back.svg';
@@ -6,74 +6,15 @@ import { ReactComponent as SearchIcon } from './assets/images/ic/search.svg';
 import { ReactComponent as ArrowDownIcon } from './assets/images/ic/arrow_drop_down.svg';
 import Card from './components/Card';
 import MainStatistics from './components/MainStatistics';
+import axios from 'axios';
+import Section from './components/Section';
 
 function App() {
 
-  const [appointments, setAppointments] = useState([
-    {
-      id: 1,
-      name: 'Friedrich Heinrich',
-      phone: '+49 146 344 23811',
-      email: 'Friedrich.heinrich@gmail.com',
-      date: '22 JULY 14:00'
-    },
-    {
-      id: 2,
-      name: 'Hans-Ulrich',
-      phone: '+49 146 344 23811',
-      email: 'Hans-Ulrichh@gmail.com',
-      date: '22 JULY 14:00'
-    },
-    {
-      id: 3,
-      name: 'Karlheinz Brandenburg',
-      phone: '+49 146 344 23811',
-      email: 'karlheinzbrandenburg@gmail.com',
-      date: '22 JULY 14:00'
-    },
-  ]),
-      [properties, setProperties] = useState([
-        {
-          id: 1,
-          name: 'Maxmillian Von Mustermann',
-          phone: '+49 146 344 23811',
-          email: 'max.mustermann@gmail.com',
-          date: 'Viewed 11 JunE 19:00',
-          bid: '250.000€'
-        },
-        {
-          id: 2,
-          name: 'Bernhard Weiß',
-          phone: '+49 146 344 23811',
-          email: 'bernhard.weiß@gmail.com',
-          date: 'Viewed 11 JunE 19:00',
-          bid: '250.000€'
-        },
-        {
-          id: 3,
-          name: 'Hansjörg Felmy',
-          phone: '+49 146 344 23811',
-          email: 'Hansjörg.felmy@gmail.com',
-          date: 'Viewed 11 JunE 19:00',
-          bid: '250.000€'
-        },
-        {
-          id: 4,
-          name: 'Gottschalk Godeslack',
-          phone: '+49 146 344 23811',
-          email: 'gottschalk.godeslack@gmail.com',
-          date: 'Viewed 11 JunE 19:00',
-          bid: '250.000€'
-        },
-        {
-          id: 5,
-          name: 'Ekkehard Hardy',
-          phone: '+49 146 344 23811',
-          email: 'ekkehard.hardy@gmail.com',
-          date: 'Viewed 11 JunE 19:00',
-          bid: '250.000€'
-        },
-      ]),
+  const [appointments, setAppointments] = useState([]),
+        [appointmentsErrorMsg, setAppointmentsErrorMsg] = useState(''),
+        [propertiesErrorMsg, setPropertiesErrorMsg] = useState(''),
+        [properties, setProperties] = useState([]),
         [colors, setColors] = useState([
           {
             id: 1,
@@ -100,7 +41,33 @@ function App() {
             color: '#E52A50',
             backgroundColor: '#FCD6DE'
           },
-        ]);
+        ]),
+        API = 'http://localhost:5000';
+
+  const getAppointments = async () => {
+    try {
+      let res = await axios(`${API}/appointments`);
+      setAppointments(res.data);
+    } catch (error) {
+      console.log(error);
+      setAppointmentsErrorMsg(`Something went wrong in loading Appointments`);
+    }
+  }
+
+  const getProperties = async () => {
+    try {
+      let res = await axios(`${API}/properties`);
+      setProperties(res.data);
+    } catch (error) {
+      console.log(error);
+      setPropertiesErrorMsg(`Something went wrong in loading Properties`);
+    }
+  }
+
+  useEffect(() => {
+    getAppointments();
+    getProperties();
+  }, []);
 
   return (
     <div>
@@ -145,30 +112,22 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="column is-6"></div>
-            </div>
-            
-          </section>
-          <h1 className="head-section-text">Appointment set ({appointments.length})</h1>
-          <section className="appointment-section">
-            <div className="columns is-mobile card-columns-mobile">
-              {appointments.length > 0 && appointments.map((data, i) => (
-                <div className="column is-3-desktop is-4-tablet is-three-quarters-mobile" key={i}>
-                  <Card data={data} colors={colors} date_placeholder="APPOINTMENT" />
-                </div>
-              ))}
+              <div className="column is-6" />
             </div>
           </section>
-          <h1 className="head-section-text">Property viewed ({properties.length})</h1>
-          <section className="appointment-section">
-            <div className="columns is-mobile card-columns-mobile">
-              {properties.length > 0 && properties.map((data, i) => (
-                <div className="column is-3-desktop is-4-tablet is-three-quarters-mobile" key={i}>
-                  <Card data={data} colors={colors} date_placeholder="VIEWED" />
-                </div>
-              ))}
-            </div>
-          </section>
+          <Section 
+            title={`Appointment set (${appointments.length})`}
+            data={appointments}
+            colors={colors}
+            errorMsg={appointmentsErrorMsg}
+          />
+          <Section 
+            title={`Property viewed (${properties.length})`}
+            data={properties}
+            colors={colors}
+            errorMsg={propertiesErrorMsg}
+          />
+         
         </main>
         <footer>
           <h1>AGB • Datenschutz • Impressum</h1>
