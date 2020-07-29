@@ -4,6 +4,7 @@ import MainStatistics from '../components/MainStatistics';
 import axios from 'axios';
 import Section from '../components/Section';
 import { useDebounce } from '../utils/debounce';
+import DropDown from '../components/DropDown';
 
 function Home({ location, history }) {
   const [appointments, setAppointments] = useState([]),
@@ -40,8 +41,26 @@ function Home({ location, history }) {
             backgroundColor: '#FCD6DE'
           },
         ]),
-        API = 'http://localhost:5000';
-        const debouncedSearchTerm = useDebounce(searchTerm, 500);
+        [statuses] = useState([
+            {
+                id: 1,
+                name: 'Appointment_Set'
+            },
+            {
+                id: 2,
+                name: 'Property_Viewed'
+            },
+            {
+                id: 3,
+                name: 'Interested'
+            },
+            {
+                id: 4,
+                name: 'Offer_Accepted'
+            },
+        ]),
+        API = 'http://localhost:5000',
+        debouncedSearchTerm = useDebounce(searchTerm, 500);
 
     useEffect(
       () => {
@@ -130,19 +149,17 @@ function Home({ location, history }) {
                 <div className="is-flex">
                   <div className="dropdown-container">
                     <img src={require('../assets/images/ic/arrow_drop_down.svg')} alt="arrow_drop_down" className="arrow-down" />
-                    <select>
-                      <option>Bids</option>
-                    </select>
+                    <DropDown 
+                        initialValue={`Bids`}
+                        options={[]}
+                    />
                   </div>
                   <div className="dropdown-container">
                     <img src={require('../assets/images/ic/arrow_drop_down.svg')} alt="arrow_drop_down" className="arrow-down" />
-                    <select>
-                      <option value="">Status</option>
-                      <option value="Appointment_Set">Appointment_Set</option>
-                      <option value="Property_Viewed">Property_Viewed</option>
-                      <option value="Interested">Interested</option>
-                      <option value="Offer_Accepted">Offer_Accepted</option>
-                    </select>
+                    <DropDown 
+                        initialValue={`Status`}
+                        options={statuses}
+                    />
                   </div>
                 </div>
               </div>
@@ -163,7 +180,6 @@ function Home({ location, history }) {
             errorMsg={propertiesErrorMsg}
             loading={isLoadingProperties}
           />
-         
         </main>
         <footer>
           <h1>AGB • Datenschutz • Impressum</h1>
