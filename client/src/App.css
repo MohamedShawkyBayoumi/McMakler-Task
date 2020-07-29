@@ -10,10 +10,6 @@ body{
   justify-content: space-between;
 }
 
-.logo {
-
-}
-
 .header-links h1 {
   font-family: Roboto;
   font-style: normal;
@@ -60,6 +56,10 @@ main {
   border-right: 1px solid #E6E6E6;
   padding: 0 43px;
   text-align: center;
+}
+
+.main-top-list li:last-child {
+  border-right: none;
 }
 
 .main-top-list li h3 {
@@ -140,6 +140,7 @@ main {
   -moz-appearance:none; /* Firefox */
   -webkit-appearance:none; /* Safari and Chrome */
   appearance:none;
+  cursor: pointer;
 }
 
 .input-container {

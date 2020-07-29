@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ReactComponent as BackIcon } from '../assets/images/ic/arrow/back.svg';
 import { ReactComponent as SearchIcon } from '../assets/images/ic/search.svg';
-import { ReactComponent as ArrowDownIcon } from '../assets/images/ic/arrow_drop_down.svg';
 import MainStatistics from '../components/MainStatistics';
 import axios from 'axios';
 import Section from '../components/Section';
@@ -103,12 +101,11 @@ function Home({ location, history }) {
 
   return (
     <div>
-
       <div className="container">
         <main>
           <section className="main-top">
             <div className="is-flex">
-              <img src={require('../assets/images/ic/arrow/back.png')} alt="back" />
+              <img src={require('../assets/images/ic/arrow/back.svg')} alt="back" />
               <h1 className="section-head-text">Applicants</h1>
             </div>
             <div className="is-hidden-mobile">
@@ -126,13 +123,13 @@ function Home({ location, history }) {
               <div className="column is-3-desktop is-5-tablet is-10-mobile">
                 <div className="is-flex">
                   <div className="dropdown-container">
-                    <img src={require('../assets/images/arrow_drop_down.png')} alt="arrow_drop_down" className="arrow-down" />
+                    <img src={require('../assets/images/ic/arrow_drop_down.svg')} alt="arrow_drop_down" className="arrow-down" />
                     <select>
                       <option>Bids</option>
                     </select>
                   </div>
                   <div className="dropdown-container">
-                    <img src={require('../assets/images/arrow_drop_down.png')} alt="arrow_drop_down" className="arrow-down" />
+                    <img src={require('../assets/images/ic/arrow_drop_down.svg')} alt="arrow_drop_down" className="arrow-down" />
                     <select>
                       <option value="">Status</option>
                       <option value="Appointment_Set">Appointment_Set</option>

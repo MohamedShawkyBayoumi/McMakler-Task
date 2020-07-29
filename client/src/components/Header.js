@@ -4,7 +4,6 @@ import { ReactComponent as SupportIcon } from '../assets/images/ic-contact_suppo
 import { ReactComponent as MessageIcon } from '../assets/images/message/active.svg';
 import { ReactComponent as UserIcon } from '../assets/images/ic-user.svg';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
-import { ReactComponent as PowerIcon } from '../assets/images/ic-power_settings_new.svg';
 
 function Header() {
     return (
@@ -37,7 +36,7 @@ function Header() {
                                 <UserIcon />
                             </li>
                             <li>
-                                <img src={require('../assets/images/ic-power_settings_new.png')} alt="ic-power_settings_new" />
+                                <img src={require('../assets/images/ic-power_settings_new.svg')} alt="ic-power_settings_new" />
                             </li>
                         </ul>
                     </div>
