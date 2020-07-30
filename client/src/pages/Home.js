@@ -101,7 +101,7 @@ function Home({ location, history }) {
     }
   }
 
-  const handleChange = async e => {
+  const handleChange = e => {
     setSearchTerm(e.target.value);
   }
 
