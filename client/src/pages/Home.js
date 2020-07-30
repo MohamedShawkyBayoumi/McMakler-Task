@@ -172,6 +172,7 @@ function Home({ location, history }) {
             colors={colors}
             errorMsg={appointmentsErrorMsg}
             loading={isLoadingAppointments}
+            date_placeholder={`APPOINTMENT`}
           />
           <Section 
             title={`Property viewed (${properties.length})`}
@@ -179,6 +180,7 @@ function Home({ location, history }) {
             colors={colors}
             errorMsg={propertiesErrorMsg}
             loading={isLoadingProperties}
+            date_placeholder={`VIEWED`}
           />
         </main>
         <footer>

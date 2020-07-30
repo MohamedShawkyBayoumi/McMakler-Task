@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card';
 
-function Section({ title, data, colors, errorMsg, loading }) {
+function Section({ title, data, colors, errorMsg, loading, date_placeholder }) {
     return (
         <>
             <h1 className="head-section-text">{title}</h1>
@@ -15,7 +15,7 @@ function Section({ title, data, colors, errorMsg, loading }) {
                         <>
                             {data.length > 0 ? data.map((obj, i) => (
                                 <div className="column is-3-desktop is-4-tablet is-three-quarters-mobile" key={i}>
-                                <Card data={obj} colors={colors} date_placeholder="APPOINTMENT" />
+                                <Card data={obj} colors={colors} date_placeholder={date_placeholder} />
                                 </div>
                             )): (
                                 <div className="column is-12">

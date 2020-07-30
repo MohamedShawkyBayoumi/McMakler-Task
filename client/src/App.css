@@ -3,30 +3,132 @@ body{
   background: #F8F8F8;
 }
 
-.header {
-  height: 60px;
+.header,
+.header-links,
+.main-top,
+.main-top-list,
+.avatar,
+.avatar div {
   display: flex;
+}
+
+.header,
+.header-links,
+.main-top,
+.avatar div {
   align-items: center;
+}
+
+.header-links h1,
+.main-top-list li h4,
+.section-head-text,
+.filters input,
+.dropdown-container select,
+.head-section-text,
+.avatar div,
+.card h3,
+.card h4,
+.appointment-date span,
+.bid span,
+footer h1,
+.main-top-list li h3 {
+  font-family: Roboto;
+  font-style: normal;
+  color: #4A4A4A;
+  font-size: 16px;
+}
+
+.main-top-list li,
+.card h3,
+.card h4,
+.appointment-date,
+.bid,
+footer h1 {
+  text-align: center;
+}
+
+.header-links h1,
+.main-top-list li h3,
+.section-head-text,
+.head-section-text,
+.avatar div,
+.card h3,
+.appointment-date span,
+.bid span {
+  font-weight: bold;
+}
+
+.header,
+.main-top {
   justify-content: space-between;
 }
 
+main,
+.dropdown-container select,
+.card {
+  background: #FFFFFF;
+}
+
+main,
+.dropdown-container select,
+.appointment-date span,
+.bid span {
+  border-radius: 3px;
+}
+
+.main-top-list li h4,
+.filters input,
+.dropdown-container select,
+.card h4,
+footer h1 {
+  font-weight: normal;
+}
+
+.filters input,
+.dropdown-container select,
+.card {
+  border-radius: 4px;
+}
+
+.filters input,
+.dropdown-container select {
+  border: 1px solid #E6E6E6;
+  color: #9D9D9D;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 19px;
+}
+
+.dropdown-container,
+.input-container {
+  position: relative;
+}
+
+.arrow-down,
+.search-icon {
+  position: absolute;  
+}
+
+.appointment-date span,
+.bid span {
+  font-size: 12px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #9D9D9D;
+  padding: 4px 8px;
+}
+
+.header {
+  height: 60px;
+}
+
 .header-links h1 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  color: #4A4A4A;
 }
 
 .hamburger-icon {
   margin-right: 36px;
-}
-
-.header-links {
-  display: flex;
-  align-items: center;
 }
 
 .header-links li {
@@ -34,28 +136,18 @@ body{
 }
 
 main {
-  background: #FFFFFF;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
   padding: 32px 24px;
   margin-bottom: 24px;
 }
 
 .main-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 32px;
-}
-
-.main-top-list {
-  display: flex;
 }
 
 .main-top-list li {
   border-right: 1px solid #E6E6E6;
   padding: 0 43px;
-  text-align: center;
 }
 
 .main-top-list li:last-child {
@@ -63,30 +155,17 @@ main {
 }
 
 .main-top-list li h3 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  color: #4A4A4A;
   font-size: 20px;
-  font-style: normal;
 }
 
 .main-top-list li h4 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  color: #4A4A4A;
+  line-height: 20px; 
 }
 
 .section-head-text {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
   font-size: 24px;
   line-height: 32px;
-  color: #4A4A4A;
   margin-left: 16px;
 }
 
@@ -95,25 +174,22 @@ main {
 }
 
 .filters input {
-  border: 1px solid #E6E6E6;
-  border-radius: 4px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #9D9D9D;
   padding: 13px 13px 13px 45px;
-  width: 100%;
+}
+
+.dropdown-container select {
+  padding: 11px 16px;
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+  cursor: pointer;
 }
 
 .dropdown-container {
   margin-right: 8px;
-  position: relative;
 }
 
 .arrow-down {
-  position: absolute;
   width: 16px;
   height: 16px;
   top: 13px;
@@ -121,59 +197,25 @@ main {
   pointer-events: none;
 }
 
-.dropdown-container select {
-  border: 1px solid #E6E6E6;
-  border-radius: 4px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #9D9D9D;
-  padding: 11px 16px;
-  width: 100%;
-  background: #FFFFFF;
-  /* Grey 300 */
-  /* height: 45px; */
-  box-sizing: border-box;
-  border-radius: 3px;
-  -moz-appearance:none; /* Firefox */
-  -webkit-appearance:none; /* Safari and Chrome */
-  appearance:none;
-  cursor: pointer;
-}
-
-.input-container {
-  position: relative;
-}
-
 .search-icon {
-  position: absolute;
   top: 11px;
   left: 14px;
 }
 
 .head-section-text {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
   font-size: 20px;
   line-height: 24px;
-  color: #4A4A4A;
   margin-bottom: 24px;
 }
 
 .card {
-  background: #FFFFFF;
   border: 1px solid #EFEFEF;
   box-sizing: border-box;
-  border-radius: 4px;
   padding: 24px 0;
 }
 
 .avatar {
   margin-bottom: 8px;
-  display: flex;
   justify-content: center;
 }
 
@@ -182,88 +224,32 @@ main {
   height: 70px;
   background: #E3E7F9;
   border-radius: 50%;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
   line-height: 24px;
   color: #405493;
 }
 
 .card h3 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  color: #4A4A4A;
 }
 
 .card h4 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  color: #4A4A4A;
-}
-
-.appointment-date {
-  text-align: center;
-}
-
-.appointment-date span {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 10px;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: #9D9D9D;
-  border-radius: 3px;
-  padding: 4px 8px;
-}
-
-.bid {
-  text-align: center;
+  line-height: 24px; 
 }
 
 .bid span {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 10px;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: #9D9D9D;
   background: #FEB902;
-  border-radius: 3px;
-  padding: 4px 8px;
 }
-
-
 
 .appointment-section {
   margin-bottom: 32px;
 }
 
 footer h1 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
   line-height: 22px;
-  color: #4A4A4A;
   mix-blend-mode: normal;
   opacity: 0.54;
-  text-align: center;
   margin-bottom: 24px;
 }
 
@@ -277,7 +263,6 @@ button {
   margin: 0;
   background: none;
   cursor: pointer;
-  outline: none;
 }
 
 @media screen and (max-width: 768px){
@@ -302,7 +287,6 @@ button {
     flex-wrap: nowrap !important;
     overflow-x: auto;
   }
-
 }
 
 @media screen and (max-width: 1023px){
